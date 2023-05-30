@@ -39,3 +39,37 @@ mysql> show databases;
 
 mysql>
 ----------- END OF UC 1 -----------
+
+
+----------- UC 2 -----------
+---- TO CREATE A TABLE WITH FOLLOWING ATTRIBUTES ----
+
+mysql> create table addressBook_db(
+    -> First_Name varchar(20),
+    -> Last_Name varchar(20),
+    -> Address varchar(50),
+    -> City varchar(20),
+    -> State varchar(50),
+    -> Zip int(10),
+    -> Phone_Number int(20),
+    -> Email varchar(50)
+    -> );
+Query OK, 0 rows affected, 2 warnings (0.17 sec)
+
+mysql> desc addressbook_db;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| First_Name   | varchar(20) | YES  |     | NULL    |       |
+| Last_Name    | varchar(20) | YES  |     | NULL    |       |
+| Address      | varchar(50) | YES  |     | NULL    |       |
+| City         | varchar(20) | YES  |     | NULL    |       |
+| State        | varchar(50) | YES  |     | NULL    |       |
+| Zip          | int         | YES  |     | NULL    |       |
+| Phone_Number | int         | YES  |     | NULL    |       |
+| Email        | varchar(50) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql>
+----------- END OF UC 2 -----------
