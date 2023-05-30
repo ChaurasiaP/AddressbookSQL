@@ -146,3 +146,18 @@ mysql> select * from addressbook_db;
 
 mysql>
 ----------- END OF UC 5 -----------
+
+
+----------- UC 6 -----------
+---- TO RETRIEVE DATA OF A CONTACT BELONGING TO A PARTICULAR CITY OR STATE ----
+
+mysql> select * from addressbook_db where City ="Kota" or State = "Rajasthan";
++------------+-----------+----------+------+-----------+--------+--------------+---------------------+
+| First_Name | Last_Name | Address  | City | State     | Zip    | Phone_Number | Email               |
++------------+-----------+----------+------+-----------+--------+--------------+---------------------+
+| Pranshu    | Chaurasia | Talwandi | Kota | Rajasthan | 324005 |     90909090 | pranshu.1@gmail.com |
++------------+-----------+----------+------+-----------+--------+--------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql>
+----------- END OF UC 6 -----------
