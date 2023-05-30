@@ -161,3 +161,21 @@ mysql> select * from addressbook_db where City ="Kota" or State = "Rajasthan";
 
 mysql>
 ----------- END OF UC 6 -----------
+
+
+----------- UC 7 -----------
+---- TO GET THE SIZE OF ADDRESS BOOK TO GET COUNT OF PERSONS FROM A PARTICULAR CITY/STATE ----
+
+mysql> select count(*) from addressbook_db where City = "Mumbai" or State = "Maharashtra";
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql>
+----------- END OF UC 7 -----------
+
+
+
