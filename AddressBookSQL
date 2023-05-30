@@ -178,4 +178,17 @@ mysql>
 ----------- END OF UC 7 -----------
 
 
+----------- UC 8 -----------
+---- TO SORT DATA ALPHABETICALLY BY NAME AND SHOW IT WITH CITY ----
 
+mysql> select City, First_Name from addressbook_db  order by First_Name ASC;
++--------+------------+
+| City   | First_Name |
++--------+------------+
+| Kota   | Pranshu    |
+| Mumbai | Raj        |
++--------+------------+
+2 rows in set (0.00 sec)
+
+mysql>
+----------- END OF UC 8 -----------
