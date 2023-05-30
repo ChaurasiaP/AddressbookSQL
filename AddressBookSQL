@@ -73,3 +73,28 @@ mysql> desc addressbook_db;
 
 mysql>
 ----------- END OF UC 2 -----------
+
+
+----------- UC 3 -----------
+---- TO ADD NEW CONTACTS IN THE ADDRESS BOOK TABLE----
+
+mysql> insert into addressbook_db (First_Name, Last_Name, Address, City, State, Zip, Phone_Number, Email) values("Pranshu", "Chaurasia", "Talwandi", "Kota", "Rajasthan", 324005, 123456, "pranshu.1@gmail.com");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into addressbook_db (First_Name, Last_Name, Address, City, State, Zip, Phone_Number, Email) values("John", "Doe", "Mansarover", "Jaipur", "Rajasthan", 300456, 654789, "john.doe@gmail.com");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into addressbook_db (First_Name, Last_Name, Address, City, State, Zip, Phone_Number, Email) values("Raj", "Jain", "Andheri", "Mumbai", "Maharashtra", 456781, 321478, "raj.3@gmail.com");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from addressbook_db;
++------------+-----------+------------+--------+-------------+--------+--------------+---------------------+
+| First_Name | Last_Name | Address    | City   | State       | Zip    | Phone_Number | Email               |
++------------+-----------+------------+--------+-------------+--------+--------------+---------------------+
+| Pranshu    | Chaurasia | Talwandi   | Kota   | Rajasthan   | 324005 |       123456 | pranshu.1@gmail.com |
+| John       | Doe       | Mansarover | Jaipur | Rajasthan   | 300456 |       654789 | john.doe@gmail.com  |
+| Raj        | Jain      | Andheri    | Mumbai | Maharashtra | 456781 |       321478 | raj.3@gmail.com     |
++------------+-----------+------------+--------+-------------+--------+--------------+---------------------+
+3 rows in set (0.00 sec)
+mysql>
+----------- END OF UC 3 -----------
