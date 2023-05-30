@@ -192,3 +192,75 @@ mysql> select City, First_Name from addressbook_db  order by First_Name ASC;
 
 mysql>
 ----------- END OF UC 8 -----------
+
+
+----------- UC 9 -----------
+---- TO CATEGORISE CONTACTS TO FAMILY, FRIENDS AND PROFESSIONAL ----
+
+mysql>  insert into addressbook_db (First_Name, Last_Name, Address, City, State, Zip, Phone_Number, Email) values("John", "Doe", "Mansarover", "Jaipur", "Rajasthan", 300456, 70070707, "john.doe@gmail.com");
+Query OK, 1 row affected (0.07 sec)
+
+mysql>  insert into addressbook_db (First_Name, Last_Name, Address, City, State, Zip, Phone_Number, Email) values("Ajay", "Chouhan", "Viman Nagar", "Pune", "Maharashtra", 123421, 67890678, "Ajay@gmail.com");
+Query OK, 1 row affected (0.07 sec)
+
+mysql>  insert into addressbook_db (First_Name, Last_Name, Address, City, State, Zip, Phone_Number, Email) values("Rahul", "Roy", "Okhla", "Noida", "Uttar Pradesh", 400433, 98798798, "Naman@gmail.com");
+Query OK, 1 row affected (0.08 sec)
+
+mysql>  insert into addressbook_db (First_Name, Last_Name, Address, City, State, Zip, Phone_Number, Email) values("Aditya", "Thakur", "Kurla", "Mumbai", "Maharashtra", 400001, 98098909, "Adi@gmail.com");
+Query OK, 1 row affected (0.07 sec)
+mysql> select * from addressbook_db;
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+
+| First_Name | Last_Name | Address     | City   | State         | Zip    | Phone_Number | Email               |
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+
+| Pranshu    | Chaurasia | Talwandi    | Kota   | Rajasthan     | 324005 |     90909090 | pranshu.1@gmail.com |
+| Raj        | Jain      | Andheri     | Mumbai | Maharashtra   | 456781 |     80808080 | raj.3@gmail.com     |
+| John       | Doe       | Mansarover  | Jaipur | Rajasthan     | 300456 |     70070707 | john.doe@gmail.com  |
+| Ajay       | Chouhan   | Viman Nagar | Pune   | Maharashtra   | 123421 |     67890678 | Ajay@gmail.com      |
+| Rahul      | Roy       | Okhla       | Noida  | Uttar Pradesh | 400433 |     98798798 | Naman@gmail.com     |
+| Aditya     | Thakur    | Kurla       | Mumbai | Maharashtra   | 400001 |     98098909 | Adi@gmail.com       |
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+
+6 rows in set (0.00 sec)
+
+mysql>  alter table addressbook_db add Type varchar(20);
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> select * from addressbook_db;
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+------+
+| First_Name | Last_Name | Address     | City   | State         | Zip    | Phone_Number | Email               | Type |
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+------+
+| Pranshu    | Chaurasia | Talwandi    | Kota   | Rajasthan     | 324005 |     90909090 | pranshu.1@gmail.com | NULL |
+| Raj        | Jain      | Andheri     | Mumbai | Maharashtra   | 456781 |     80808080 | raj.3@gmail.com     | NULL |
+| John       | Doe       | Mansarover  | Jaipur | Rajasthan     | 300456 |     70070707 | john.doe@gmail.com  | NULL |
+| Ajay       | Chouhan   | Viman Nagar | Pune   | Maharashtra   | 123421 |     67890678 | Ajay@gmail.com      | NULL |
+| Rahul      | Roy       | Okhla       | Noida  | Uttar Pradesh | 400433 |     98798798 | Naman@gmail.com     | NULL |
+| Aditya     | Thakur    | Kurla       | Mumbai | Maharashtra   | 400001 |     98098909 | Adi@gmail.com       | NULL |
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+------+
+6 rows in set (0.00 sec)
+
+mysql> update addressbook_db set type = "Family" where First_Name = "Pranshu" or First_Name = "Rahul";
+Query OK, 2 rows affected (0.07 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update addressbook_db set type = "Friend" where First_Name = "John" or First_Name = "Aditya";
+Query OK, 2 rows affected (0.03 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update addressbook_db set type = "Professional" where First_Name = "Raj" or First_Name = "Ajay";
+Query OK, 2 rows affected (0.10 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from addressbook_db;
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+--------------+
+| First_Name | Last_Name | Address     | City   | State         | Zip    | Phone_Number | Email               | Type         |
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+--------------+
+| Pranshu    | Chaurasia | Talwandi    | Kota   | Rajasthan     | 324005 |     90909090 | pranshu.1@gmail.com | Family       |
+| Raj        | Jain      | Andheri     | Mumbai | Maharashtra   | 456781 |     80808080 | raj.3@gmail.com     | Professional |
+| John       | Doe       | Mansarover  | Jaipur | Rajasthan     | 300456 |     70070707 | john.doe@gmail.com  | Friend       |
+| Ajay       | Chouhan   | Viman Nagar | Pune   | Maharashtra   | 123421 |     67890678 | Ajay@gmail.com      | Professional |
+| Rahul      | Roy       | Okhla       | Noida  | Uttar Pradesh | 400433 |     98798798 | Naman@gmail.com     | Family       |
+| Aditya     | Thakur    | Kurla       | Mumbai | Maharashtra   | 400001 |     98098909 | Adi@gmail.com       | Friend       |
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+--------------+
+6 rows in set (0.00 sec)
+
+mysql>
+----------- END OF UC 9 -----------
