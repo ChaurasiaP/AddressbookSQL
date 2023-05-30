@@ -264,3 +264,53 @@ mysql> select * from addressbook_db;
 
 mysql>
 ----------- END OF UC 9 -----------
+
+
+----------- UC 10 -----------
+---- TO GET THE COUNT OF ADDRESSES BY TYPE ----
+
+mysql> update addressbook_db set type = "Family" where First_Name = "Raj";
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressbook_db;
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+--------------+
+| First_Name | Last_Name | Address     | City   | State         | Zip    | Phone_Number | Email               | Type         |
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+--------------+
+| Pranshu    | Chaurasia | Talwandi    | Kota   | Rajasthan     | 324005 |     90909090 | pranshu.1@gmail.com | Family       |
+| Raj        | Jain      | Andheri     | Mumbai | Maharashtra   | 456781 |     80808080 | raj.3@gmail.com     | Family       |
+| John       | Doe       | Mansarover  | Jaipur | Rajasthan     | 300456 |     70070707 | john.doe@gmail.com  | Friend       |
+| Ajay       | Chouhan   | Viman Nagar | Pune   | Maharashtra   | 123421 |     67890678 | Ajay@gmail.com      | Professional |
+| Rahul      | Roy       | Okhla       | Noida  | Uttar Pradesh | 400433 |     98798798 | Naman@gmail.com     | Family       |
+| Aditya     | Thakur    | Kurla       | Mumbai | Maharashtra   | 400001 |     98098909 | Adi@gmail.com       | Friend       |
++------------+-----------+-------------+--------+---------------+--------+--------------+---------------------+--------------+
+6 rows in set (0.00 sec)
+
+mysql> select count(*) from table where Type = "Family";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table where Type = "Family"' at line 1
+mysql> select count(*) from addressbook_db where Type = "Family";
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from addressbook_db where Type = "Friend";
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from addressbook_db where Type = "Professional";
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql>
+----------- END OF UC 10 -----------
