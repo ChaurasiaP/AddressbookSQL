@@ -314,3 +314,75 @@ mysql> select count(*) from addressbook_db where Type = "Professional";
 
 mysql>
 ----------- END OF UC 10 -----------
+
+
+----------- UC 13 -----------
+---- RETRIEVING DATA USING TYPE ----
+// UC 6 REFRACTORED
+mysql> select City ,State, type from addressbook_db where Type = "Family";
++--------+---------------+--------+
+| City   | State         | type   |
++--------+---------------+--------+
+| Kota   | Rajasthan     | Family |
+| Mumbai | Maharashtra   | Family |
+| Noida  | Uttar Pradesh | Family |
++--------+---------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select City ,State, type from addressbook_db where Type = "Friend";
++--------+-------------+--------+
+| City   | State       | type   |
++--------+-------------+--------+
+| Jaipur | Rajasthan   | Friend |
+| Mumbai | Maharashtra | Friend |
++--------+-------------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select City ,State, type from addressbook_db where Type = "Professional";
++------+-------------+--------------+
+| City | State       | type         |
++------+-------------+--------------+
+| Pune | Maharashtra | Professional |
++------+-------------+--------------+
+1 row in set (0.00 sec)
+
+// UC 7 refractored
+
+mysql> select count(city), count(State) from addressbook_db where type = "Professional";
++-------------+--------------+
+| count(city) | count(State) |
++-------------+--------------+
+|           1 |            1 |
++-------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select count(city), count(State) from addressbook_db where type = "Friend";
++-------------+--------------+
+| count(city) | count(State) |
++-------------+--------------+
+|           2 |            2 |
++-------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select count(city), count(State) from addressbook_db where type = "Family";
++-------------+--------------+
+| count(city) | count(State) |
++-------------+--------------+
+|           3 |            3 |
++-------------+--------------+
+1 row in set (0.00 sec)
+
+// ORDER BY NAME UC 8
+mysql> select First_Name, City, Type from addressbook_db order by First_Name asc;
++------------+--------+--------------+
+| First_Name | City   | Type         |
++------------+--------+--------------+
+| Aditya     | Mumbai | Friend       |
+| Ajay       | Pune   | Professional |
+| John       | Jaipur | Friend       |
+| Pranshu    | Kota   | Family       |
+| Rahul      | Noida  | Family       |
+| Raj        | Mumbai | Family       |
++------------+--------+--------------+
+6 rows in set (0.00 sec)
+----------- END OF UC 13 -----------
